@@ -1,9 +1,9 @@
+import 'package:expense_tracker/core/constants/icons_paths.dart';
 import 'package:expense_tracker/core/constants/image_paths.dart';
+import 'package:expense_tracker/core/widgets/app_bar_section.dart';
 import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/bottom_navigation_section.dart';
 import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
-
-import 'home_app_bar_section.dart';
 
 class EmptyStateScreen extends StatelessWidget {
   const EmptyStateScreen({super.key});
@@ -12,7 +12,16 @@ class EmptyStateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: HomeAppBarSection(),
+      appBar: AppBarSection(
+        title: 'ExpenseTracker',
+        leading: Image.asset(ImagePaths.historyAvatarImage),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Image.asset(IconsConstants.notificationIcon),
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           children: [
