@@ -22,33 +22,37 @@ class CardSection extends StatelessWidget {
             Text(
               'Total Balance',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                color: Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.7),
               ),
             ),
             Text(
               '\$2,450.00',
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                 color: Theme.of(context).colorScheme.onPrimary,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.2),
+                color: Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(IconsConstants.trendIcon, width: 12, height: 12),
-                    SizedBox(width: 2),
+                    Image.asset(
+                      IconsConstants.trendIcon,
+                      width: 12,
+                      height: 12,
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                    const SizedBox(width: 4),
                     Text(
                       '+12% this month',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                   ],

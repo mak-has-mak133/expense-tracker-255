@@ -12,4 +12,7 @@ class IconsConstants {
   static const String notificationIcon = '$_iconsPath/notification_icon.png';
   static const String trendIcon = '$_iconsPath/trend_icon.png';
   static const String foodIcon = '$_iconsPath/food_icon.svg';
+  static const String transportIcon = '$_iconsPath/transport_icon.png';
+  static const String rentIcon = '$_iconsPath/rent_icon.png';
+  static const String addIcon = '$_iconsPath/add_icon.png';
 }

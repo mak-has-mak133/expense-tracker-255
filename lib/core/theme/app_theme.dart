@@ -39,6 +39,9 @@ class AppTheme {
         incomeSurface: AppColors.incomeSurface,
         transportSurface: AppColors.transportSurface,
         onTransportSurface: AppColors.onTransportSurface,
+        rentSurface: AppColors.rentSurface,
+        amountDecrease: AppColors.amountDecrease,
+        amountIncrease: AppColors.amountIncrease,
       ),
     ],
   );

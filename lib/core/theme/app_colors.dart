@@ -18,9 +18,12 @@ class AppColors {
   // out of color scheme properties
   static Color budgetImpactOutline = Color(0xFF091426).withValues(alpha: 0.1);
   static const Color onFoodSurface = Color(0xFF2563EB);
-  static const Color foodSurface = Color(0xFFEFF6FF);
+  static Color foodSurface = Color(0xFFFFEDD5).withValues(alpha: 0.5);
   static const Color onIncomeSurface = Color(0xFF16A34A);
   static const Color incomeSurface = Color(0xFFF0FDF4);
-  static const Color transportSurface = Color(0xFFF3F4F6);
+  static Color transportSurface = Color(0xFFDBEAFE).withValues(alpha: 0.5);
   static const Color onTransportSurface = Color(0xFF4B5563);
+  static Color rentSurface = Color(0xFFF3E8FF).withValues(alpha: 0.5);
+  static const Color amountDecrease = Color(0xFFBA1A1A);
+  static const Color amountIncrease = Color(0xFF16A34A);
 }
