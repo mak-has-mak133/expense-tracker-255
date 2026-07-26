@@ -26,4 +26,7 @@ class AppColors {
   static Color rentSurface = Color(0xFFF3E8FF).withValues(alpha: 0.5);
   static const Color amountDecrease = Color(0xFFBA1A1A);
   static const Color amountIncrease = Color(0xFF16A34A);
+  static const Color foodPrimary = Color(0xFFF97316);
+  static const Color transportPrimary = Color(0xFF3B82F6);
+  static const Color rentPrimary = Color(0xFFA855F7);
 }

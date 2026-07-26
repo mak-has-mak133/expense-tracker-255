@@ -62,11 +62,15 @@ class BudgetOverviewSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final category = Categories.values[index];
               final themeExt = Theme.of(context).extension<ExpenseThemeExtension>()!;
-              
+
               final (backgroundColor, progressColor, progress) = switch (category) {
-                Categories.food => (themeExt.foodSurface, const Color(0xFFF97316), 0.4),
-                Categories.transport => (themeExt.transportSurface, const Color(0xFF3B82F6), 0.7),
-                Categories.rent => (themeExt.rentSurface, const Color(0xFFA855F7), 0.9),
+                Categories.food => (themeExt.foodSurface, themeExt.foodPrimary, 0.4),
+                Categories.transport => (
+                  themeExt.transportSurface,
+                  themeExt.transportPrimary,
+                  0.7,
+                ),
+                Categories.rent => (themeExt.rentSurface, themeExt.rentPrimary, 0.9),
               };
 
               return BudgetOverviewCard(

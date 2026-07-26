@@ -42,6 +42,9 @@ class AppTheme {
         rentSurface: AppColors.rentSurface,
         amountDecrease: AppColors.amountDecrease,
         amountIncrease: AppColors.amountIncrease,
+        transportPrimary: AppColors.transportPrimary,
+        foodPrimary: AppColors.foodPrimary,
+        rentPrimary: AppColors.rentPrimary,
       ),
     ],
   );

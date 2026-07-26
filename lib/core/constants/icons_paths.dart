@@ -15,4 +15,5 @@ class IconsConstants {
   static const String transportIcon = '$_iconsPath/transport_icon.png';
   static const String rentIcon = '$_iconsPath/rent_icon.png';
   static const String addIcon = '$_iconsPath/add_icon.png';
+  static const String arrowBackIcon = '$_iconsPath/arrow_back_icon.png';
 }

@@ -6,6 +6,7 @@ import 'package:expense_tracker/features/transactions/presentation/screens/expen
 import 'package:flutter/material.dart';
 
 import 'budget_overview_section.dart';
+import 'home_bottom_navigation.dart';
 
 class ExpenseHome extends StatelessWidget {
   const ExpenseHome({super.key});
@@ -49,6 +50,7 @@ class ExpenseHome extends StatelessWidget {
           color: Theme.of(context).colorScheme.onPrimary,
         ),
       ),
+      bottomNavigationBar: HomeBottomNavigation(),
     );
   }
 }
