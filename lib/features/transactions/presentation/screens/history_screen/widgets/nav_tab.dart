@@ -15,9 +15,8 @@ class NavTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       height: 38,
-      width: 105,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: tabBackground,
@@ -25,7 +24,10 @@ class NavTab extends StatelessWidget {
       child: Center(
         child: Text(
           tabName,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: tabForeground),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            color: tabForeground,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );

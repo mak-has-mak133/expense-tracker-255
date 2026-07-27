@@ -16,7 +16,7 @@ class AppColors {
   static final Color tertiary = const Color(0xFFFFFFFF).withValues(alpha: 0.2);
 
   // out of color scheme properties
-  static Color budgetImpactOutline = Color(0xFF091426).withValues(alpha: 0.1);
+  static Color budgetImpactOutline = Color(0xFF091426).withValues(alpha: 0.05);
   static const Color onFoodSurface = Color(0xFF2563EB);
   static Color foodSurface = Color(0xFFFFEDD5).withValues(alpha: 0.5);
   static const Color onIncomeSurface = Color(0xFF16A34A);

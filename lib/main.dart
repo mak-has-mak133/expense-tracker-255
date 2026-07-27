@@ -1,4 +1,4 @@
-import 'package:expense_tracker/features/transactions/presentation/screens/new_transaction/new_transaction.dart';
+import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/history_home/history_home.dart';
 import 'package:flutter/material.dart';
 
 import 'core/theme/app_theme.dart';
@@ -9,7 +9,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: 'Expense Tracker',
       theme: AppTheme.lightTheme,
-      home: NewTransaction(), //EmptyStateScreen()
+      home: const HistoryHome(), //EmptyStateScreen()
     ),
   );
 }

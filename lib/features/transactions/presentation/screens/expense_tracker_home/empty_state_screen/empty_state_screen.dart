@@ -1,7 +1,7 @@
 import 'package:expense_tracker/core/constants/icons_paths.dart';
 import 'package:expense_tracker/core/constants/image_paths.dart';
 import 'package:expense_tracker/core/widgets/app_bar_section.dart';
-import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/bottom_navigation_section.dart';
+import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/history_empty_state/bottom_navigation_section.dart';
 import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 

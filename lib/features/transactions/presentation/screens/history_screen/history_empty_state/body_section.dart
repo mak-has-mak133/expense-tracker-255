@@ -1,4 +1,4 @@
-import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/history_tab.dart';
+import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/components/history_tab.dart';
 import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/widgets/empty_state_widget.dart';
 import 'package:expense_tracker/features/transactions/provider/tab_provider.dart';
 import 'package:flutter/material.dart';
