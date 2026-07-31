@@ -14,6 +14,11 @@ class ExpenseThemeExtension extends ThemeExtension<ExpenseThemeExtension> {
   final Color transportPrimary;
   final Color foodPrimary;
   final Color rentPrimary;
+  final Color shoppingSurface;
+  final Color utilitiesSurface;
+  final Color categoryProgressBar;
+  final Color shoppingPrimary;
+  final Color utilitiesPrimary;
 
   const ExpenseThemeExtension({
     required this.budgetImpactOutline,
@@ -29,6 +34,11 @@ class ExpenseThemeExtension extends ThemeExtension<ExpenseThemeExtension> {
     required this.transportPrimary,
     required this.foodPrimary,
     required this.rentPrimary,
+    required this.shoppingSurface,
+    required this.utilitiesSurface,
+    required this.categoryProgressBar,
+    required this.shoppingPrimary,
+    required this.utilitiesPrimary,
   });
 
   @override
@@ -46,6 +56,11 @@ class ExpenseThemeExtension extends ThemeExtension<ExpenseThemeExtension> {
     Color? transportPrimary,
     Color? foodPrimary,
     Color? rentPrimary,
+    Color? shoppingSurface,
+    Color? utilitiesSurface,
+    Color? categoryProgressBar,
+    Color? utilitiesPrimary,
+    Color? shoppingPrimary,
   }) {
     return ExpenseThemeExtension(
       budgetImpactOutline: budgetImpactOutline ?? this.budgetImpactOutline,
@@ -61,6 +76,11 @@ class ExpenseThemeExtension extends ThemeExtension<ExpenseThemeExtension> {
       transportPrimary: transportPrimary ?? this.transportPrimary,
       foodPrimary: foodPrimary ?? this.foodPrimary,
       rentPrimary: rentPrimary ?? this.rentPrimary,
+      shoppingSurface: shoppingSurface ?? this.shoppingSurface,
+      utilitiesSurface: utilitiesSurface ?? this.utilitiesSurface,
+      categoryProgressBar: categoryProgressBar ?? this.categoryProgressBar,
+      shoppingPrimary: shoppingPrimary ?? this.shoppingPrimary,
+      utilitiesPrimary: utilitiesPrimary ?? this.utilitiesPrimary,
     );
   }
 
@@ -84,6 +104,11 @@ class ExpenseThemeExtension extends ThemeExtension<ExpenseThemeExtension> {
       transportPrimary: Color.lerp(transportPrimary, other.transportPrimary, t)!,
       foodPrimary: Color.lerp(foodPrimary, other.foodPrimary, t)!,
       rentPrimary: Color.lerp(rentPrimary, other.rentPrimary, t)!,
+      shoppingSurface: Color.lerp(shoppingSurface, other.shoppingSurface, t)!,
+      utilitiesSurface: Color.lerp(utilitiesSurface, other.utilitiesSurface, t)!,
+      categoryProgressBar: Color.lerp(categoryProgressBar, other.categoryProgressBar, t)!,
+      shoppingPrimary: Color.lerp(shoppingPrimary, other.shoppingPrimary, t)!,
+      utilitiesPrimary: Color.lerp(utilitiesPrimary, other.utilitiesPrimary, t)!,
     );
   }
 }

@@ -17,4 +17,7 @@ class IconsConstants {
   static const String addIcon = '$_iconsPath/add_icon.png';
   static const String arrowBackIcon = '$_iconsPath/arrow_back_icon.png';
   static const String cautionIcon = '$_iconsPath/caution_icon.png';
+  static const String salaryIcon = '$_iconsPath/salary_icon.png';
+  static const String shoppingIcon = '$_iconsPath/shopping_icon.png';
+  static const String utilitiesIcon = '$_iconsPath/utilities_icon.png';
 }

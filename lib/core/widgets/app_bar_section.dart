@@ -19,7 +19,7 @@ class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
       ),
       centerTitle: false,
       titleSpacing: 0,
-      actions: actions != null ? [...actions!, SizedBox(width: 8)] : null,
+      actions: actions != null ? [...actions!, SizedBox(width: 10)] : null,
     );
   }
 

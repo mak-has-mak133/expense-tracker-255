@@ -1,3 +1,4 @@
+import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/history_home/home_transaction_section.dart';
 import 'package:flutter/material.dart';
 
 import 'hst_hm_search_section.dart';
@@ -25,6 +26,8 @@ class _HistoryBodySectionState extends State<HistoryBodySection> {
           HstHomeTab(),
           SizedBox(height: 26),
           HstHmSearchSection(),
+          SizedBox(height: 26),
+          Expanded(child: HomeTransactionSection()),
         ],
       ),
     );

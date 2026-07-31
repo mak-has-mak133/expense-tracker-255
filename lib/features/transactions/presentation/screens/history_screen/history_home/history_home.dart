@@ -1,6 +1,7 @@
 import 'package:expense_tracker/core/constants/icons_paths.dart';
 import 'package:expense_tracker/core/constants/image_paths.dart';
 import 'package:expense_tracker/core/widgets/app_bar_section.dart';
+import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/history_home/history_home_bottom_navigation.dart';
 import 'package:expense_tracker/features/transactions/provider/tab_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,7 @@ class HistoryHome extends StatelessWidget {
           ],
         ),
         body: const HistoryBodySection(),
+        bottomNavigationBar: HistoryHomeBottomNavigation(),
       ),
     );
   }

@@ -29,4 +29,9 @@ class AppColors {
   static const Color foodPrimary = Color(0xFFF97316);
   static const Color transportPrimary = Color(0xFF3B82F6);
   static const Color rentPrimary = Color(0xFFA855F7);
+  static Color shoppingSurface = Color(0xFFA38C6A);
+  static Color utilitiesSurface = Color(0xFFFFDAD6);
+  static Color categoryProgressBar = Color(0xFFB7C8E1);
+  static Color shoppingPrimary = Color(0XFFA38C6A);
+  static Color utilitiesPrimary = Color(0xFF505F76);
 }

@@ -45,6 +45,11 @@ class AppTheme {
         transportPrimary: AppColors.transportPrimary,
         foodPrimary: AppColors.foodPrimary,
         rentPrimary: AppColors.rentPrimary,
+        shoppingSurface: AppColors.shoppingSurface,
+        utilitiesSurface: AppColors.utilitiesSurface,
+        categoryProgressBar: AppColors.categoryProgressBar,
+        shoppingPrimary: AppColors.shoppingPrimary,
+        utilitiesPrimary: AppColors.utilitiesPrimary,
       ),
     ],
   );
