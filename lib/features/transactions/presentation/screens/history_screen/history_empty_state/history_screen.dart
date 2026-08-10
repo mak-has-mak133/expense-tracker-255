@@ -1,7 +1,7 @@
 import 'package:expense_tracker/core/constants/icons_paths.dart';
 import 'package:expense_tracker/core/constants/image_paths.dart';
 import 'package:expense_tracker/core/widgets/app_bar_section.dart';
-import 'package:expense_tracker/features/transactions/provider/tab_provider.dart';
+import 'package:expense_tracker/features/transactions/provider/tab_switching_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,10 +33,10 @@ class HistoryScreen extends StatelessWidget {
         ],
       ),
       body: ChangeNotifierProvider(
-        create: (BuildContext context) => TabProvider(),
-        child: BodySection(),
+        create: (BuildContext context) => TabSwitchingProvider(),
+        child: const BodySection(),
       ),
-      bottomNavigationBar: BottomNavigationSection(),
+      bottomNavigationBar: const BottomNavigationSection(),
     );
   }
 }

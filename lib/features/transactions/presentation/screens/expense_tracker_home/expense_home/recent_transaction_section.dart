@@ -1,50 +1,18 @@
-import 'package:expense_tracker/core/constants/icons_paths.dart';
 import 'package:expense_tracker/core/theme/expense_theme_extension.dart';
 import 'package:expense_tracker/core/widgets/list_card.dart';
+import 'package:expense_tracker/features/transactions/provider/transaction_provider.dart';
 import 'package:flutter/material.dart';
-
-enum Categories {
-  food(
-    categoryName: 'Food',
-    iconPath: IconsConstants.foodIcon,
-    categoryAmount:
-        '-'
-        '\$420',
-    item: 'Grocery Mart',
-  ),
-  transport(
-    categoryName: 'Transport',
-    iconPath: IconsConstants.transportIcon,
-    categoryAmount: '\$720',
-    item: 'Uber Ride',
-  ),
-  rent(
-    categoryName: 'Rent',
-    iconPath: IconsConstants.rentIcon,
-    categoryAmount:
-        '-\$1,'
-        '200',
-    item: 'July Rent',
-  );
-
-  final String categoryName;
-  final String iconPath;
-  final String categoryAmount;
-  final String item;
-
-  const Categories({
-    required this.categoryName,
-    required this.iconPath,
-    required this.categoryAmount,
-    required this.item,
-  });
-}
+import 'package:provider/provider.dart';
 
 class RecentTransactionSection extends StatelessWidget {
   const RecentTransactionSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final categories = context.watch<TransactionProvider>().expenseCategories;
+    // Show only a few recent ones, e.g., first 3
+    final recentCategories = categories.take(3).toList();
+
     return Column(
       children: [
         Row(
@@ -70,24 +38,21 @@ class RecentTransactionSection extends StatelessWidget {
         ListView.separated(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: Categories.values.length,
+          itemCount: recentCategories.length,
           scrollDirection: Axis.vertical,
           separatorBuilder: (context, index) => SizedBox(height: 16),
           itemBuilder: (context, index) {
-            final category = Categories.values[index];
+            final category = recentCategories[index];
             final themeExt = Theme.of(context).extension<ExpenseThemeExtension>()!;
-            Color iconBackground = switch (category) {
-              Categories.food => themeExt.foodSurface,
-              Categories.transport => themeExt.transportSurface,
-              Categories.rent => themeExt.rentSurface,
-            };
+            Color iconBackground = category.getIconBackground(themeExt);
+
             return ListCard(
               iconBackground: iconBackground,
               iconPath: category.iconPath,
-              expenseTitle: category.categoryName,
-              categoryName: category.item,
+              expenseTitle: category.name,
+              categoryName: category.mockItemName,
               date: '31-july-2023',
-              transactionAmount: category.categoryAmount,
+              transactionAmount: '-\$${category.mockAmountSpent}',
             );
           },
         ),

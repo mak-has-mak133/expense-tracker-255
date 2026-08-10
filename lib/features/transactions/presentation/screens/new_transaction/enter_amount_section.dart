@@ -1,7 +1,37 @@
 import 'package:flutter/material.dart';
 
-class EnterAmountSection extends StatelessWidget {
+class EnterAmountSection extends StatefulWidget {
   const EnterAmountSection({super.key});
+
+  @override
+  State<EnterAmountSection> createState() => _EnterAmountSectionState();
+}
+
+class _EnterAmountSectionState extends State<EnterAmountSection> {
+  final TextEditingController _controller = TextEditingController();
+  double _textFieldWidth = 60.0;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _updateWidth() {
+    final text = _controller.text.isEmpty ? '0.00' : _controller.text;
+    final style = Theme.of(context).textTheme.headlineLarge!;
+
+    final textPainter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      maxLines: 1,
+      textDirection: TextDirection.ltr,
+    )..layout();
+
+    setState(() {
+      // Add a buffer for the cursor and a minimum width
+      _textFieldWidth = textPainter.width + 10;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +53,7 @@ class EnterAmountSection extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -34,10 +64,15 @@ class EnterAmountSection extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.25,
+                  width: _textFieldWidth.clamp(60.0, MediaQuery.of(context).size.width * 0.7),
                   child: TextField(
+                    controller: _controller,
+                    onChanged: (_) => _updateWidth(),
+                    autofocus: true,
+                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                    style: Theme.of(context).textTheme.headlineLarge,
                     decoration: InputDecoration(
                       hintText: '0.00',
                       border: InputBorder.none,

@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-class HomeBottomNavigation extends StatefulWidget {
-  const HomeBottomNavigation({super.key});
+class BottomNavigation extends StatelessWidget {
+  final int _selectedIndex;
+  final Function(int) _onItemTapped;
 
-  @override
-  State<HomeBottomNavigation> createState() => _HomeBottomNavigationState();
-}
-
-class _HomeBottomNavigationState extends State<HomeBottomNavigation> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  const BottomNavigation({
+    super.key,
+    required this._selectedIndex,
+    required this._onItemTapped,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,34 +1,17 @@
-import 'package:expense_tracker/core/constants/icons_paths.dart';
+import 'package:expense_tracker/core/models/app_category.dart';
 import 'package:expense_tracker/core/theme/expense_theme_extension.dart';
+import 'package:expense_tracker/features/transactions/provider/transaction_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'category_card.dart';
-
-enum Categories {
-  food(name: 'Food', iconPath: IconsConstants.foodIcon, categoryAmount: '\$420'),
-  transport(
-    name: 'Transport',
-    iconPath: IconsConstants.transportIcon,
-    categoryAmount: '\$720',
-  ),
-  rent(name: 'Rent', iconPath: IconsConstants.rentIcon, categoryAmount: '\$1,200');
-
-  final String name;
-  final String iconPath;
-  final String categoryAmount;
-
-  const Categories({
-    required this.name,
-    required this.iconPath,
-    required this.categoryAmount,
-  });
-}
 
 class NewCategorySection extends StatelessWidget {
   const NewCategorySection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final categories = context.watch<TransactionProvider>().expenseCategories;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -49,31 +32,18 @@ class NewCategorySection extends StatelessWidget {
             crossAxisSpacing: 25,
             mainAxisSpacing: 20,
           ),
-          itemCount: Categories.values.length,
+          itemCount: categories.length,
           itemBuilder: (BuildContext context, int index) {
             final themeExt = Theme.of(context).extension<ExpenseThemeExtension>()!;
-            final category = Categories.values[index];
-            final (iconBackgroundColor, iconColor, icon) = switch (category) {
-              Categories.food => (
-                themeExt.foodSurface,
-                themeExt.foodPrimary,
-                Icons.food_bank_outlined,
-              ),
-              Categories.transport => (
-                themeExt.transportSurface,
-                themeExt.transportPrimary,
-                Icons.emoji_transportation,
-              ),
-              Categories.rent => (
-                themeExt.rentSurface,
-                themeExt.rentPrimary,
-                Icons.home_work_outlined,
-              ),
-            };
+            final category = categories[index];
+
+            final iconBackgroundColor = category.getIconBackground(themeExt);
+            final iconColor = category.getIconColor(themeExt);
+
             return CategoryCard(
               iconBackgroundColor: iconBackgroundColor,
               iconColor: iconColor,
-              icon: icon,
+              iconPath: category.iconPath,
               categoryName: category.name,
             );
           },

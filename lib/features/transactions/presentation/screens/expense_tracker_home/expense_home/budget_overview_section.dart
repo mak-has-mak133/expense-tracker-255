@@ -1,34 +1,16 @@
-import 'package:expense_tracker/core/constants/icons_paths.dart';
 import 'package:expense_tracker/core/theme/expense_theme_extension.dart';
+import 'package:expense_tracker/features/transactions/provider/transaction_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'budget_overview_card.dart';
-
-enum Categories {
-  food(name: 'Food', iconPath: IconsConstants.foodIcon, categoryAmount: '\$420'),
-  transport(
-    name: 'Transport',
-    iconPath: IconsConstants.transportIcon,
-    categoryAmount: '\$720',
-  ),
-  rent(name: 'Rent', iconPath: IconsConstants.rentIcon, categoryAmount: '\$1,200');
-
-  final String name;
-  final String iconPath;
-  final String categoryAmount;
-
-  const Categories({
-    required this.name,
-    required this.iconPath,
-    required this.categoryAmount,
-  });
-}
 
 class BudgetOverviewSection extends StatelessWidget {
   const BudgetOverviewSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final categories = context.watch<TransactionProvider>().expenseCategories;
     return Column(
       children: [
         Row(
@@ -57,26 +39,21 @@ class BudgetOverviewSection extends StatelessWidget {
           height: 150,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemCount: Categories.values.length,
+            itemCount: categories.length,
             separatorBuilder: (context, index) => SizedBox(width: 10),
             itemBuilder: (context, index) {
-              final category = Categories.values[index];
+              final category = categories[index];
               final themeExt = Theme.of(context).extension<ExpenseThemeExtension>()!;
 
-              final (backgroundColor, progressColor, progress) = switch (category) {
-                Categories.food => (themeExt.foodSurface, themeExt.foodPrimary, 0.4),
-                Categories.transport => (
-                  themeExt.transportSurface,
-                  themeExt.transportPrimary,
-                  0.7,
-                ),
-                Categories.rent => (themeExt.rentSurface, themeExt.rentPrimary, 0.9),
-              };
+              final backgroundColor = category.getIconBackground(themeExt);
+              final progressColor = category.getIconColor(themeExt);
+              final progress = (category.mockAmountSpent / category.defaultBudget)
+                  .clamp(0.0, 1.0);
 
               return BudgetOverviewCard(
                 categoryIconPath: category.iconPath,
                 categoryName: category.name,
-                categoryAmount: category.categoryAmount,
+                categoryAmount: '\$${category.mockAmountSpent}',
                 iconBackgroundColor: backgroundColor,
                 progress: progress,
                 progressColor: progressColor,

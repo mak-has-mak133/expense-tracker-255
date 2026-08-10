@@ -16,11 +16,9 @@ class _HistoryBodySectionState extends State<HistoryBodySection> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-
-        mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(height: 26),
           HstHomeTab(),

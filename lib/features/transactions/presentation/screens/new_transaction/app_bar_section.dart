@@ -1,5 +1,7 @@
 import 'package:expense_tracker/core/constants/icons_paths.dart';
+import 'package:expense_tracker/core/routing/app_routing.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
   const AppBarSection({super.key});
@@ -7,15 +9,17 @@ class AppBarSection extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        onPressed: () {},
-        icon: Image.asset(
-          IconsConstants.arrowBackIcon,
-          width: 16,
-          height: 16,
-          color: Theme.of(context).colorScheme.primary,
-        ),
-      ),
+      leading: context.canPop()
+          ? IconButton(
+              onPressed: () => AppRoutes.goToPreviousScreen(context),
+              icon: Image.asset(
+                IconsConstants.arrowBackIcon,
+                width: 16,
+                height: 16,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            )
+          : null,
 
       title: Text(
         'New Transaction',

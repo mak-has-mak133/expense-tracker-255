@@ -1,6 +1,6 @@
 import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/components/history_tab.dart';
 import 'package:expense_tracker/features/transactions/presentation/screens/history_screen/widgets/empty_state_widget.dart';
-import 'package:expense_tracker/features/transactions/provider/tab_provider.dart';
+import 'package:expense_tracker/features/transactions/provider/tab_switching_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +14,7 @@ class BodySection extends StatefulWidget {
 class _BodySectionState extends State<BodySection> {
   @override
   Widget build(BuildContext context) {
-    String selectedTab = context.watch<TabProvider>().selectedTab;
+    String selectedTab = context.watch<TabSwitchingProvider>().selectedHistoryTab;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
