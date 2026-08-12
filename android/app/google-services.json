@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "647587856396",
+    "project_id": "imutheboy-b4822",
+    "storage_bucket": "imutheboy-b4822.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647587856396:android:07faac5b2623b42412ae29",
+        "android_client_info": {
+          "package_name": "com.example.expense_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBEWok8Wzc922a_KARTlWXlgDKB2qcwVM"
+        },
+        {
+          "current_key": "AIzaSyBsHebH8qSKSn0A2jGeOi7JbfHI6N1QYYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647587856396:android:9a370158b66b956212ae29",
+        "android_client_info": {
+          "package_name": "com.example.imutheboy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBEWok8Wzc922a_KARTlWXlgDKB2qcwVM"
+        },
+        {
+          "current_key": "AIzaSyBsHebH8qSKSn0A2jGeOi7JbfHI6N1QYYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

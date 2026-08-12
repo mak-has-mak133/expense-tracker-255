@@ -14,7 +14,9 @@ class BodySection extends StatefulWidget {
 class _BodySectionState extends State<BodySection> {
   @override
   Widget build(BuildContext context) {
-    String selectedTab = context.watch<TabSwitchingProvider>().selectedHistoryTab;
+    HistoryCategoryTabs selectedTab = context
+        .watch<TabSwitchingProvider>()
+        .selectedHistoryTab;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,9 +29,9 @@ class _BodySectionState extends State<BodySection> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              HistoryTab(tabName: 'All'),
-              HistoryTab(tabName: 'Income'),
-              HistoryTab(tabName: 'Expenses'),
+              HistoryTab(tabName: HistoryCategoryTabs.all),
+              HistoryTab(tabName: HistoryCategoryTabs.income),
+              HistoryTab(tabName: HistoryCategoryTabs.expenses),
             ],
           ),
         ),
@@ -43,16 +45,11 @@ class _BodySectionState extends State<BodySection> {
     );
   }
 
-  Widget _buildContentSection(String selectedTab) {
-    switch (selectedTab) {
-      case 'All':
-        return EmptyStateWidget(uniqueKey: UniqueKey());
-      case 'Income':
-        return Text('ycdhsbyghbs');
-      case 'Expense':
-        return EmptyStateWidget(uniqueKey: UniqueKey());
-      default:
-        return EmptyStateWidget(uniqueKey: UniqueKey());
-    }
+  Widget _buildContentSection(HistoryCategoryTabs selectedTab) {
+    return switch (selectedTab) {
+      HistoryCategoryTabs.all => EmptyStateWidget(uniqueKey: UniqueKey()),
+      HistoryCategoryTabs.income => Text('ycdhsbyghbs'),
+      HistoryCategoryTabs.expenses => EmptyStateWidget(uniqueKey: UniqueKey()),
+    };
   }
 }

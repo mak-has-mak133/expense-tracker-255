@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HistoryTab extends StatelessWidget {
-  final String tabName;
+  final HistoryCategoryTabs tabName;
 
   const HistoryTab({super.key, required this.tabName});
 
@@ -14,6 +14,7 @@ class HistoryTab extends StatelessWidget {
       builder: (BuildContext context, TabSwitchingProvider value, Widget? child) {
         return GestureDetector(
           onTap: () {
+            if (tabName == value.selectedHistoryTab) return;
             value.setHistoryTabIndex(tabName);
           },
           child: SizedBox(
@@ -21,7 +22,7 @@ class HistoryTab extends StatelessWidget {
               tabBackground: tabName == value.selectedHistoryTab
                   ? Theme.of(context).colorScheme.primary
                   : Theme.of(context).colorScheme.secondaryContainer,
-              tabName: tabName,
+              tabName: tabName.name,
               tabForeground: tabName == value.selectedHistoryTab
                   ? Theme.of(context).colorScheme.onPrimary
                   : Theme.of(context).colorScheme.secondary,

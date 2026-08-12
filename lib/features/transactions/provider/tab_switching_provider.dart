@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
+enum HistoryCategoryTabs { all, income, expenses }
+
 class TabSwitchingProvider extends ChangeNotifier {
   int _selectedBottomNavIndex = 0;
-  String _selectedHistoryTab = 'All';
+  HistoryCategoryTabs _selectedHistoryTab = HistoryCategoryTabs.all;
 
   int get selectedBottomNavIndex => _selectedBottomNavIndex;
 
-  String get selectedHistoryTab => _selectedHistoryTab;
+  HistoryCategoryTabs get selectedHistoryTab => _selectedHistoryTab;
 
   void setBottomNavIndex(int index) {
     _selectedBottomNavIndex = index;
     notifyListeners();
   }
 
-  void setHistoryTabIndex(String tab) {
+  void setHistoryTabIndex(HistoryCategoryTabs tab) {
     _selectedHistoryTab = tab;
     notifyListeners();
   }

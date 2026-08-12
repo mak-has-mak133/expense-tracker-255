@@ -1,5 +1,6 @@
 import 'package:expense_tracker/core/theme/expense_theme_extension.dart';
 import 'package:expense_tracker/core/widgets/list_card.dart';
+import 'package:expense_tracker/features/transactions/provider/tab_switching_provider.dart';
 import 'package:expense_tracker/features/transactions/provider/transaction_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,12 @@ class HomeTransactionSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final categories = context.watch<TransactionProvider>().categories;
+    final selectedTab = context.watch<TabSwitchingProvider>().selectedHistoryTab;
+
+    final categories = context.watch<TransactionProvider>().getSelectedCategories(
+      selectedTab,
+    );
+
     return ListView.separated(
       padding: const EdgeInsets.only(bottom: 20),
       itemBuilder: (BuildContext context, int index) {
@@ -23,8 +29,7 @@ class HomeTransactionSection extends StatelessWidget {
         // Mocking some dates based on index to keep it looking dynamic
         final date = '${27 + index} July 2023';
         final amountPrefix = category.isIncome ? '+' : '-';
-        final amountValue =
-            category.isIncome ? 500 : (category.mockAmountSpent / 10);
+        final amountValue = category.isIncome ? 500 : (category.mockAmountSpent / 10);
         final transactionAmount = '$amountPrefix\$${amountValue.toStringAsFixed(2)}';
 
         return ListCard(
